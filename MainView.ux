@@ -1,0 +1,86 @@
+<App>
+	<ClientPanel>
+		<Grid Columns="auto,1*,auto" Height="50" Dock="Top" Margin="5">
+			<Grid ColumnCount="2" RowCount="2" Width="22" Height="22" Margin="10">
+				<Each Count="4">
+					<Circle Color="#ff2211" Margin="0.5"/>
+				</Each>
+			</Grid>
+			<Text ux:Name="titleText" Value="QUERY BACK" TextColor="#ff2211" FontSize="25" Alignment="Center">
+			</Text>
+			<Image File="Assets/FuseLogo.png" Color="#ff2211" Width="30" Height="30" Margin="10"/>
+		</Grid>
+	<Panel Dock="Top" Height="60">
+		<Rectangle ux:Name="indicator" CornerRadius="20" Color="#ff00ee"  Margin="0,10" ZOffset="0.1" Width="100%" LayoutMaster="p1"/>
+		<Grid ColumnCount="5" Margin="-30,0">
+			<Panel ux:Name="p1" Column="0" ColumnSpan="2"/>
+			<Panel ux:Name="p4" Column="3" ColumnSpan="2"/>
+		</Grid>
+
+		<Grid ZOffset="1" Margin="-20,0">
+			<Column ux:Name="col1" Width="1" WidthMetric="Proportion"/>
+			<Column ux:Name="col2" Width="1" WidthMetric="Proportion"/>
+			<Column ux:Name="col3" Width="1" WidthMetric="Proportion"/>
+			<Column ux:Name="col4" Width="1" WidthMetric="Proportion"/>
+
+			<Text ux:Class="TabHeader" TextColor="White" Alignment="CenterLeft" Opacity="0" Margin="20,0,0,0" MinWidth="100"/>
+				<Image ux:Class="TabIcon" Height="25" Width="25"/>
+
+		<Panel HitTestMode="LocalBounds">
+			<Grid Columns="auto,1*" Margin="40.0" Alignment="Left">
+				<TabIcon ux:Name="c1" File="Assets/basket.png"/>
+				<TabHeader ux:Name="h1" Value="Products"/>
+				<Clicked>
+					<Set nav.Active="page1"/>
+				</Clicked>
+			</Grid>
+			<Grid Columns="auto,1*" Margin="40.0" Alignment="Left">
+				<TabIcon ux:Name="c2" File="Assets/basket.png"/>
+				<TabHeader ux:Name="h2" Value="Places"/>
+				<Clicked>
+					<Set nav.Active="page2"/>
+				</Clicked>
+			</Grid>
+			<Grid Columns="auto,1*" Margin="40.0" Alignment="Left">
+				<TabIcon ux:Name="c3" File="Assets/person.png"/>
+				<TabHeader ux:Name="h3" Value="Home"/>
+				<Clicked>
+					<Set nav.Active="page3"/>
+				</Clicked>
+			</Grid>
+			<Grid Columns="auto,1*" Margin="40.0" Alignment="Left">
+				<TabIcon ux:Name="c4" File="Assets/chat.png"/>
+				<TabHeader ux:Name="h4" Value="Chat"/>
+				<Clicked>
+					<Set nav.Active="page4"/>
+				</Clicked>
+			</Grid>
+		</Panel>
+	</Grid>
+	</Panel>
+	<PageControl ux:Name="nav">
+		<NavigationMotion GotoEasing="BackOut"/>
+		<Attractor ux:Name="indicatorColorAttractor" Target="indicator.Color" Value="#ffee00"/>
+		<Rectangle ux:Name="bColor" Layer="Background" Color="#ffee00" Opacity="0.12"/>
+		<Attractor ux:Name="bgAttractor" Target="bgColor.Color" Value="#ffee00"/>
+		<Attractor ux:Name="titleTextAttractor" Target="titleText.Color" Value="#ff00ee"/>
+
+		<WhileTrue ux:Name="shrinkIndicatorWidth">
+			<Change indicator.Width="90" Duration="0.25"/>
+		</WhileTrue>
+		<Page ux:Name="page1">
+
+		</Page>
+
+		<Page ux:Name="page2">
+		</Page>
+
+		<Page ux:Name="page3">
+		</Page>
+
+		<Page ux:Name="page4">
+		</Page>
+	</PageControl>
+	</ClientPanel>
+
+</App>
